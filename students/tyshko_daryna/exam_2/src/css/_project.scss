@@ -1,0 +1,185 @@
+.what-we-do {
+    padding-top: 100px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    &__container {
+        color: $color-pickled-bluewood;
+        position: relative;
+    }
+
+    &__title {
+        font-size: 44px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: "Gotham-Medium";
+        margin-bottom: 170px;
+        @include line-before-upper($color-black, -10px);
+
+        @media screen and (max-width: 500px) {
+            font-size: 30px;
+        }
+    }
+}
+
+.projects {
+    &__image-rew {
+        margin-bottom: 140px;
+        position: relative;
+    }
+
+    &__image-rew:nth-child(odd) {
+        padding-right: 40px;
+
+        @media screen and (max-width: 1200px) {
+            padding-left: 20px;
+        }
+    }
+
+    &__image-rew:nth-child(odd)::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $color-malibu;
+        bottom: 15%;
+        right: 55%;
+        z-index: -1;
+    }
+
+    &__image-rew:nth-child(even) {
+        padding-left: 40px;
+
+        @media screen and (max-width: 1200px) {
+            padding-right: 20px;
+        }
+    }
+
+    &__image-rew:nth-child(even)::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $color-heliotrope;
+        bottom: 15%;
+        right: -45%;
+        z-index: -1;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        max-width: 630px;
+    }
+
+    &__img::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        max-width: 585px;
+        bottom: 55%;
+        right: 50%;
+        z-index: -1;
+    }
+
+    &__info:nth-child(even) {
+        padding-left: 30px;
+        padding-right: 10px;
+
+        @media screen and (max-width: 1200px) {
+            padding-left: 10px;
+        }
+    }
+
+    &__info:nth-child(odd) {
+        padding-right: 30px;
+        padding-left: 10px;
+
+        @media screen and (max-width: 1200px) {
+            padding-right: 10px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 22px;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-top: 55px;
+    }
+
+    &__title {
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: "Gotham-Medium";
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        margin-bottom: 40px;
+    }
+
+    &__address {
+        margin-bottom: 70px;
+    }
+
+    &__address-link {
+        display: flex;
+        align-items: center;
+        font-style: italic;
+        color: $color-pickled-bluewood;
+        text-decoration: none;
+    }
+}
+
+.button {
+    padding: 10px 30px 10px 30px;
+    border: 1px solid $color-pickled-bluewood;
+    margin-bottom: 55px;
+
+    &__link {
+        color: $color-pickled-bluewood;
+        font-size: 12px;
+        display: inline-block;
+    }
+}
+
+@include media("xl") {
+    .what-we-do {
+        padding-top: 80px;
+
+        &__title {
+            margin-bottom: 40px;
+        }
+    }
+
+    .projects {
+        &__image-rew {
+            margin-bottom: 70px;
+        }
+
+        &__subtitle {
+            font-size: 20px;
+            padding-top: 10px;
+        }
+
+        &__title {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        &__text {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        &__button {
+            margin-bottom: 20px;
+        }
+
+        &__address {
+            margin-bottom: 52px;
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,147 @@
+.gallery {
+    padding-bottom: 140px;
+    padding-top: 110px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    @media screen and (max-width: 1200px) {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    &__container {
+        color: $color-pickled-bluewood;
+    }
+
+    // .gallery__title
+
+    &__title {
+        font-size: 44px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 100px;
+        position: relative;
+
+        @include line-before-upper($color-pickled-bluewood, -37px);
+
+        @media screen and (max-width: 1200px) {
+            margin-bottom: 25px;
+        }
+
+        @media screen and (max-width: 768px) {
+            margin-bottom: 15px;
+        }
+
+        @media screen and (max-width: 576px) {
+            font-size: 30px;
+        }
+    }
+
+    // .gallery__img-list
+
+    &__img-list {
+        margin-bottom: 30px;
+    }
+
+    // .gallery__button
+
+    &__button {
+        margin: 0 auto;
+    }
+
+    &__button:hover {
+        background-color: $color-heliotrope;
+    }
+}
+
+.container {}
+
+.row {}
+
+.col-12 {}
+
+.img-list {
+    // .img-list__image-wrapper
+
+    &__image-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        // .img-list__image-wrapper_big
+
+        &_big {}
+
+        // .img-list__image-wrapper_left
+
+        &_left {}
+
+        // .img-list__image-wrapper_right
+
+        &_right {}
+    }
+
+    // .img-list__img
+
+    &__img {
+        display: block;
+        padding: 5px;
+        width: 100%;
+        transition: 0.5s;
+    }
+
+    &__img:hover {
+        transform: scale(1.1);
+    }
+}
+
+.container {}
+
+.row {}
+
+.append {
+
+    // .append__row
+
+    &__row {}
+}
+
+.img-list {
+
+    // .img-list__image-wrapper-a
+
+    &__image-wrapper-a {}
+
+    // .img-list__image-wrapper
+
+    &__image-wrapper {
+
+        // .img-list__image-wrapper_left
+
+        &_left {}
+    }
+
+    // .img-list__image-link-a
+
+    &__image-link-a {}
+
+    &__image-link-a:hover {
+        transform: scale(1.1);
+    }
+}
+
+.col-3 {}
+
+.col-md-6 {}
+
+
+.col-6 {}
+
+.col-3 {}
+
+.button {
+    // .button__link
+
+    &__link {}
+}

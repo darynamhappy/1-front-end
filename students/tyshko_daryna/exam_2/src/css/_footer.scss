@@ -1,0 +1,277 @@
+.footer {
+    @include bg-cover("..//image/bg-footer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    background-color: $color-heliotrope;
+
+    &__container {
+        @media screen and (max-width: 768px) {
+            max-width: 100%;
+        }
+    }
+
+    &__contact-wrapper {
+        position: relative;
+        background-color: $color-white;
+        background-image: url(../image/bg-modal.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        margin: 0 auto;
+        justify-content: center;
+        max-width: 770px;
+        margin-bottom: 55px;
+        margin: -370px auto 0;
+    }
+
+    &__contact-header-title {
+        position: relative;
+        font-family: $font-secondary-name;
+        font-weight: normal;
+        font-size: 44px;
+        line-height: 44px;
+        text-align: center;
+        color: $color-pickled-bluewood;
+        padding-top: 85px;
+        margin-bottom: 43px;
+        position: relative;
+        @include line-before-upper($color-pickled-bluewood, 60px);
+
+        &::after {
+            z-index: 20;
+        }
+
+        @media screen and (max-width: 576px) {
+            font-size: 25px;
+            padding-top: 55px;
+        }
+
+    }
+
+    &__contact-adress {
+
+        &_position {
+            padding-left: 61px;
+            margin-bottom: 24px;
+
+            @media screen and (max-width: 576px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &__contact-tel {
+        display: block;
+
+        &_position {
+            padding-left: 66px;
+            margin-bottom: 24px;
+
+            @media screen and (max-width: 576px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &__contact-email {
+        display: block;
+
+        &_position {
+            padding-left: 67px;
+            margin-bottom: 24px;
+
+            @media screen and (max-width: 576px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &__contact-time {
+
+        &_position {
+            padding-left: 65px;
+
+            @media screen and (max-width: 768px) {
+                margin-bottom: 24px;
+            }
+
+            @media screen and (max-width: 576px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &__contact-form {
+
+        &_position {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__contact-form-name,
+    &__contact-form-email {
+        display: block;
+        box-sizing: border-box;
+        font-size: 100%;
+        margin: 0;
+        overflow: visible;
+        color: $color-pickled-bluewood;
+        outline: none;
+        border: transparent;
+        border-bottom: 1px solid #d5d9de;
+        font-weight: 600;
+        padding: 6px 0 16px 10px;
+        width: 83%;
+        font-size: 18px;
+        font-family: $font-primary-name;
+        line-height: 1.222;
+    }
+
+    &__contact-form-name {
+
+        &_position {
+            margin-left: 6px;
+            margin-bottom: 31px;
+        }
+
+        @media screen and (max-width: 576px) {
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+
+    &__contact-form-email {
+
+        &_position {
+            margin-left: 6px;
+            margin-bottom: 31px;
+
+            @media screen and (max-width: 768px) {
+                margin-bottom: 24px;
+            }
+
+            @media screen and (max-width: 576px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+    }
+
+    &__contact-form-btn {
+        line-height: 1.15;
+        overflow: visible;
+        font-family: $font-primary-name;
+        color: $color-pickled-bluewood;
+        outline: none;
+        width: 140px;
+        height: 50px;
+        border: 1px solid $color-pickled-bluewood;
+        align-self: flex-end;
+        text-transform: uppercase;
+        font-size: 14px;
+        background-color: transparent;
+        cursor: pointer;
+
+        &_position {
+            margin-left: 186px;
+            margin-bottom: 40px;
+
+            @media screen and (max-width: 768px) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__cover {
+        padding-top: 55px;
+        margin-bottom: 27px;
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        padding-left: 56px;
+
+        @media screen and (max-width: 768px) {
+            padding-left: 0px;
+        }
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        padding-right: 9px;
+    }
+
+    &__content {
+        padding-left: 201px;
+        margin-bottom: 193px;
+
+        @media screen and (max-width: 992px) {
+            margin-bottom: 60px;
+        }
+
+        @media screen and (max-width: 576px) {
+            margin-bottom: 50px;
+        }
+
+        @media screen and (max-width: 452px) {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 992px) {
+            padding-left: 0;
+            justify-content: center;
+        }
+    }
+
+    &__text {
+        font-size: 14px;
+        font-family: $font-primary-name;
+        color: $color-white;
+        line-height: 1.571;
+        margin-right: 18px;
+
+        @media screen and (max-width: 576px) {
+            margin-right: 0;
+            text-align: center;
+        }
+    }
+}
+
+.contact-text {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+    color: $color-pickled-bluewood;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social__items_position {
+    padding: 0;
+
+    @media screen and (max-width: 576px) {
+        padding-left: 0 !important;
+    }
+}
+
+.footer {
+    &__input-wrapper {
+        position: relative;
+    }
+
+    &__input-text-msg {
+        position: absolute;
+        top: 90%;
+        left: 3%;
+        font-size: 12px;
+    }
+}

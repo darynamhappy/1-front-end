@@ -1,0 +1,58 @@
+$breack-points: ("xl": 1200px,
+    "lg": 992px,
+    "md": 768px,
+    "sm": 576px,
+);
+
+$color-white: #fff;
+$color-black: #000000;
+$color-outrageous-orange: #ff5f33;
+$color-bondi-blue: #02b1b1;
+$color-malibu: #70beff;
+$color-bright-sun: #ffe92f;
+$color-horizon: #5585a1;
+$color-atlantis: #95b92b;
+$color-heliotrope: #b07bf7;
+$color-red-orange: #f72a3b;
+$color-mine-shaft: #252525;
+$color-amaranth: #f02b55;
+$dodger-blue: #5474fd;
+$dodger-blue2: #496bfe;
+$dusty-gray: #999999;
+$color-mystic: #e3e9ed;
+$porcelain: #e2e5e8;
+$color-mercury: #e8e8e8;
+$color-mine-shaft: #333333;
+$color-mine-shaft2: #232323;
+$color-dove-gray: #676767;
+$color-tangaroa: #041a47;
+$color-melrose: #af9afb;
+$color-san-marino: #4267b2;
+$color-carrot-orange: #f28e1d;
+$color-heliotrope: #7E5AFF;
+$color-pickled-bluewood: #2c4058;
+$color-river-bed: #4b5562;
+
+$input-border-color: grey;
+$default-border: 1px solid $input-border-color;
+$default-border-radius: 5px;
+
+$container-widht: 1140px;
+$default-gap: 15px;
+
+$body-bg-color: $color-white;
+$border-color: grey;
+$btn-widht: 200px;
+
+$font-primary-name: "Gotham-Book";
+$font-secondary-name: "Gotham-Medium";
+$font-third-name: "Gotham-Bold";
+$font-fourth-name: "OpenSans";
+$font-folder-path: "../fonts/";
+$font-reserve: Arial,
+Helvetica,
+sans-serif;
+// $default-color-text: $color-mine-shaft;
+
+$font-default-size: 16px;
+$font-default-wight: 300px;
