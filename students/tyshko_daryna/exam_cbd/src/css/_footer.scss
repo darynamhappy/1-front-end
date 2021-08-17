@@ -1,0 +1,405 @@
+.footer {
+    background-color: #f7f8f3;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    &__col-center_before {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            height: 55px;
+            width: 2px;
+            background: #6e774a;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 10%);
+            width: 2px;
+            height: 55px;
+
+            @media screen and (max-width:575px) {
+                display: none;
+            }
+        }
+    }
+
+    &__row-center>div:nth-child(2) {
+        @media screen and (max-width:575px) {
+            padding-top: 20px;
+            order: 2;
+        }
+    }
+
+    &__row-subscribe {
+        margin-bottom: 5px;
+    }
+
+    &__row-logo {
+
+        &_position {
+            padding-top: 170px;
+            margin-bottom: 60px;
+
+            @media screen and (max-width:1400px) {
+                padding-top: 85px;
+            }
+
+            @media screen and (max-width:576px) {
+                padding-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            @media screen and (max-width:360px) {
+                padding-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &__line-wrapper {
+        position: relative;
+        height: 100%;
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: calc(100% - 10px);
+            height: 2px;
+            display: inline-block;
+            top: 50%;
+            transform: translate(0, -50%);
+            // background: #cecece;
+            // background: red;
+            // background: $go-ben;
+            background: #6F784B;
+
+        }
+    }
+
+    &__logo-wrapper {
+        text-align: center;
+    }
+
+    &__left-side-menu,
+    &__right-side-menu {
+        text-align: center;
+    }
+
+    &__center-menu {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__center-menu-item {
+        position: relative;
+    }
+
+    &__center-menu-item-link {
+        &:before {
+            content: '';
+            position: absolute;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            transform: translate(-35%, -22%);
+            border-radius: 50%;
+            border: 1px solid rgb(110, 119, 74);
+
+            opacity: 1;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+        }
+
+        &:hover::before {
+            opacity: 1;
+            color: rgb(110, 119, 74);
+
+        }
+
+        &:hover>.footer__center-menu-item-svg {
+            opacity: 1;
+            color: rgb(110, 119, 74);
+            fill: #ced6af;
+        }
+    }
+
+    &__center-menu-item:nth-child(2)>&__center-menu-item-link:before {
+        transform: translate(-22%, -27%);
+    }
+
+    &__center-menu-item:nth-child(3)>&__center-menu-item-link:before {
+        transform: translate(-15%, -25%);
+    }
+
+    &__center-menu-item-svg {
+        fill: white;
+        fill: #6e774a;
+
+
+        &:hover {
+            fill: yellowgreen;
+            fill: white;
+            fill: #ced6af;
+        }
+    }
+
+    &__contact-form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__row-contact {
+        text-align: center;
+        margin-bottom: 121px;
+
+        @media screen and (max-width:992px) {
+            margin-bottom: 100px;
+        }
+
+        @media screen and (max-width:576px) {
+            margin-bottom: 90px;
+        }
+    }
+
+    &__input-wrapper {
+        position: relative;
+        width: 374px;
+
+        @media screen and (max-width:400px) {
+            width: 300px;
+        }
+
+        @media screen and (max-width:310px) {
+            width: 250px;
+            width: 100%;
+        }
+    }
+
+    &__contact-form-email {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        background: transparent;
+        border: 2px solid #ced6af;
+        outline: none;
+        font-size: 16px;
+        font-family: $font-default;
+        color: rgb(110, 119, 74);
+        line-height: 4.688;
+        font-family: Oswald-Light;
+        letter-spacing: 0.28em;
+        left: 0;
+        padding-left: 27px;
+        padding-right: 110px;
+
+        &:focus {
+            border-color: #6e774a;
+        }
+
+        &:hover {
+            border-color: #6e774a;
+        }
+    }
+
+    &__text {
+        font-family: $font-second;
+        font-size: 11px;
+        color: rgb(110, 119, 74);
+        text-transform: uppercase;
+        line-height: 1.5;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-align: center;
+        color: #6e774a;
+    }
+
+    &__row-all-right-reserved {
+        margin-bottom: 58px;
+
+        @media screen and (max-width:360px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__col-all-right-reserved {
+        text-align: center;
+    }
+}
+
+// Placeholder Input
+::-webkit-input-placeholder {
+    color: #808861;
+}
+
+::-moz-placeholder {
+    color: #808861;
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+    color: #808861;
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+    color: #808861;
+}
+
+.btnSubmit {}
+
+// Blocks
+.footer-logo-text {
+    font-size: 60px;
+    @include adaptive-font-size(60, 24);
+    font-family: $font-default;
+    line-height: 0.917;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(110, 119, 74);
+}
+
+.footer-link {
+    font-family: $font-second;
+    font-weight: normal;
+    font-size: 14px;
+    @include adaptive-font-size(14, 11);
+    letter-spacing: 0.28em;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 2.857;
+    text-decoration: none;
+    color: #6e774a;
+}
+
+.subscribe-text {
+    font-family: $font-default;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    line-height: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1c1c1b;
+}
+
+.footer-contac-btn {
+    display: inline-block;
+    padding: 17px 36px;
+    background: #000;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    right: 4%;
+    z-index: 3;
+
+    &:before {
+        content: url("../images/submit-arrow.svg");
+        display: inline-block;
+    }
+}
+
+
+// div bnt footer
+.footer-contac-btn-div {
+    display: inline-block;
+    padding: 17px 28px;
+    background: #000;
+    background: transparent;
+    border: 0;
+    border-left: 1px solid #ced6af;
+    color: #fff;
+    text-transform: uppercase;
+    height: 45px;
+    position: absolute;
+    cursor: pointer;
+    top: 7px;
+    right: 2%;
+    z-index: 0;
+
+    &:before {
+        content: url("../images/submit-arrow.svg");
+        display: inline-block;
+    }
+}
+
+.footer__form {
+    position: relative;
+    width: 374px;
+    margin: 0 auto;
+
+    @media screen and (max-width:400px) {
+        width: 300px;
+        // margin: 0 auto;
+    }
+
+    @media screen and (max-width:310px) {
+        width: 250px;
+        width: 100%;
+    }
+}
+
+.d4 {
+    background: #F15B42;
+}
+
+.d4 form {
+    background: #F9F0DA;
+    border-bottom: 4px solid #be290e;
+}
+
+.d4 input,
+.d4 button {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.d4 input {
+    width: 100%;
+    height: 42px;
+    padding-left: 15px;
+}
+
+.d4 button {
+    height: 42px;
+    width: 42px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.d4 button:before {
+    content: "";
+    display: inline-block;
+    height: 30px;
+    position: absolute;
+    width: 2px;
+    background: yellowgreen;
+    top: 16%;
+    right: 102%;
+}
+
+.d4 button:after {
+    content: url("../images/submit-arrow.svg");
+    font-size: 20px;
+    color: #be290e;
+}
+
+.error {
+    position: absolute;
+    bottom: -80px;
+    transform: translate(-50%, 32%);
+}

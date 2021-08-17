@@ -1,0 +1,76 @@
+<header class="header">
+
+    <div class="header__container">
+
+        <nav class="menu header_menu">
+            <a href="#" class="menu__burger-btn"><span></span></a>
+            <ul class="menu__list">
+                <li class="menu__item menu__item-login">
+                    <a href="#" class="menu__link menu__link-login">Login</a>
+                    <a href="#" class="menu__link menu__link-search">Search</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#" class="menu__link">HOME</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#products" class="menu__link">PRODUCTS</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#faqs" class="menu__link">FAQS</a>
+                </li>
+                <li class="menu__item">
+                    <a href="#contact" class="menu__link">CONTACT US</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a href="#" class="logo header__logo">CBD</a>
+
+        <ul class="action header__action">
+            <li class="action__item login">
+                <a href="#" class="action__login-link">LOGIN</a>
+            </li>
+
+            <li class="action__item action__search search search-js">
+                <form action="#" class="search__form">
+                    <input type="text" class="search__input search__input-js" aria-label="search">
+                    <button type="submit" class="search__btn">SEARCH</button>
+                </form>
+            </li>
+            <li class="action__item cart" id="cart">
+                <span class="cart__title">CART ({{ getCountProduct }})</span>
+
+                <div class="cart__mini-cart mini-cart">
+                    <ul class="mini-cart__list">
+                        <li class="mini-cart__item" v-for="(product, index) in cartList" :key="product.id">
+                            <img class="mini-cart__img" :src="pathImageFolder + product.img" :alt="product.name">
+                            <div class="mini-cart__product-info">
+                                <h4 class="mini-cart__product-name"> {{product.name}} </h4>
+                                <p class="mini-cart__product-price-wrapper">
+                                    <span class="mini-cart__product-price">{{currensySymbol}}
+                                        {{product.price.toLocaleString()}}
+                                        {{currensySymbolSecond}}</span>
+                                    <span class="mini-cart__product-summary-price">{{currensySymbol}}
+                                        {{ (product.price * product.qty).toLocaleString() }}
+                                        {{currensySymbolSecond}}</span>
+                                </p>
+                            </div>
+                            <div class="mini-cart__qty-wrapper">
+                                <button @click="setQtyProduct(product, true)" class="mini-cart__inc"></button>
+                                <input class="mini-cart__qty" type="text" v-model="product.qty">
+                                <button @click="setQtyProduct(product, false)" class="mini-cart__dec"></button>
+                                <button @click="removeProduct(index)" class="mini-cart__btn-remove">X</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mini-cart__summary-wrapper" v-if="getTotalPrice !== 0">
+                        <p class="mini-cart__summary"> {{ getTotalPrice }} </p>
+                    </div>
+                    <div class="mini-cart__action">
+                        <button class="btn btn_primary mini-cart__go-to-checkout">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,572 @@
+.testimonials {
+
+    &__wrapper {}
+
+    &__carousel {}
+
+    &__inner {}
+
+    &__slide {
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            // z-index: 2;
+            // background-color: rgba($color: #000000, $alpha: .6)
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.4009978991596639) 0%, rgba(0, 0, 0, 0.4) 100%);
+            // background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6026785714285714) 40%);
+            // background-color: rgba(28, 32, 11, 0.6);
+        }
+    }
+
+    &__raiting {
+        padding-top: 265px;
+        margin-bottom: 44px;
+
+        @media screen and (max-width:1400px) {
+            padding-top: 100px;
+        }
+
+        @media screen and (max-width:992px) {
+            padding-top: 10px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__quote {
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+        max-width: 770px;
+        margin: 0 auto;
+        text-align: center;
+        font-family: $font-second;
+        font-weight: normal;
+        font-size: 22px;
+        @include adaptive-font-size(22, 14);
+        letter-spacing: 0.2em;
+        line-height: 40px;
+        text-align: center;
+        // color: $color-white;
+        color: #fff;
+
+        @media screen and (max-width:992px) {
+            line-height: 1.5;
+        }
+
+        @media screen and (max-width:576px) {
+            letter-spacing: 0;
+        }
+
+        @media screen and (max-width:360px) {
+            line-height: 1.2;
+        }
+    }
+
+    &__author {
+        // position: relative;
+        font-family: $font-default;
+        font-weight: normal;
+        font-size: 24px;
+        letter-spacing: 0.2em;
+        line-height: 75px;
+        text-align: center;
+        text-transform: uppercase;
+        // color: $color-white;
+        color: #fff;
+        margin: 0 auto;
+
+        @include adaptive-font-size(24, 10);
+
+        @media screen and (max-width:992px) {
+            line-height: 1.5;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            // position: absolute;
+            width: 45px;
+            height: 2px;
+            margin-right: 10px;
+            vertical-align: super;
+            background-color: $color-white;
+            background-color: #fff;
+
+            @media screen and (max-width:576px) {
+                width: 20px;
+            }
+        }
+    }
+
+    &__title {
+        position: absolute;
+        left: 2.3%;
+        bottom: 5%;
+        font-family: $font-second;
+        font-weight: normal;
+        font-size: 24px;
+        letter-spacing: 0.28em;
+        line-height: 60px;
+        text-transform: uppercase;
+        // color: $color-white;
+        color: #fff;
+        writing-mode: vertical-rl;
+        @include adaptive-font-size(24, 7);
+
+        @media screen and (max-width:992px) {
+            line-height: 1;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    &__arrow-left {
+
+        // &::before {
+        //     content: url("../images/testimonials-slider-arrow-left.svg");
+        //     display: inline-block;
+        //     cursor: pointer;
+        //     position: absolute;
+        //     bottom: 0%;
+        //     left: 50%;
+        //     // -webkit-transform: translate(-160%, -50%);
+        //     // transform: translate(-160%, -50%);
+        //     transform: translate(-45%, -145%);
+        //     // z-index: 10;
+
+        //     @media screen and (max-width:992px) {
+        //         transform: translate(-45%, -0%);
+        //     }
+
+        //     & :hover {
+        //         fill: sandybrown;
+        //         // color: red;
+        //         fill: red;
+        //     }
+        // }
+
+
+    }
+
+    &__arrow-right {
+        border-right: 1px solid white;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        height: 40px;
+        width: 40px;
+
+        &::before {
+            // content: url("../images/testimonials-slider-arrow-right.svg");
+            // display: inline-block;
+            // cursor: pointer;
+            // position: absolute;
+            // bottom: 0%;
+            // left: 50%;
+            // // -webkit-transform: translate(-160%, -50%);
+            // // transform: translate(-160%, -50%);
+            // transform: translate(-60%, -145%);
+            // // z-index: 10;
+
+            // @media screen and (max-width:992px) {
+            //     transform: translate(-60%, -0%);
+            // }
+        }
+    }
+}
+
+.carousel {}
+
+.inner {}
+
+.slide {}
+
+.active {}
+
+.raiting {
+
+    &__control {}
+
+    &__action {}
+
+    &__star {}
+
+    &__star-full {}
+}
+
+.arrow {}
+
+.arrow-left {}
+
+.arrow-right {}
+
+.testimonials__arrow-left:hover .testimonials__arrow-left::before {
+    fill: seashell;
+}
+
+
+
+
+
+// Slider Testimonials CSS
+
+// html,
+// body {
+//     background: #eee;
+//     width: 100%;
+// }
+
+.testimonials__wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0% auto 0;
+    height: 80%;
+    // height: 800px;
+}
+
+/**
+ * Padding is set relative to the width
+ * of the element, so here padding-top:60% is
+ * a percentage of the width. This allows us 
+ * to set the height as a ratio of the width
+ *
+ */
+.carousel {
+    width: 100%;
+    position: relative;
+    // padding-top: 60%;
+    // height: 800px;
+    overflow: hidden;
+    padding-top: 42.039%;
+}
+
+.inner {
+    width: 100%;
+    // height: 80%;
+    // height: 70.066%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/**
+ * ==========================
+ * Animation styles
+ * 
+ * Notes:
+ * 1. We use z-index to position active slides in-front 
+ * of non-active slides
+ * 2. We set right:0 and left:0 on .slide to provide us with
+ * a default positioning on both sides of the slide. This allows 
+ * us to trigger JS and CSS3 animations easily
+ *
+ */
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.slide.active,
+.slide.left,
+.slide.right {
+    // z-index: 2;
+    z-index: -1;
+    opacity: 1;
+}
+
+/**
+ * ==========================
+ * JS animation styles
+ * 
+ * We use jQuery.animate to control the sliding animations
+ * when CSS3 animations are not available. In order for
+ * the next slide to slide in from the right, we need
+ * to change the left:0 property of the slide to left:auto
+ *
+ */
+
+.js-reset-left {
+    left: auto
+}
+
+/**
+ * ==========================
+ * CSS animation styles
+ * 
+ * .slide.left and .slide.right set-up
+ * the to-be-animated slide so that it can slide
+ * into view. For example, a slide that is about 
+ * to slide in from the right will:
+ * 1. Be positioned to the right of the viewport (right:-100%)
+ * 2. Slide in when the style is superseded with a more specific style (right:0%)
+ *
+ */
+.slide.left {
+    left: -100%;
+    right: 0;
+}
+
+.slide.right {
+    right: -100%;
+    left: auto;
+}
+
+.transition .slide.left {
+    left: 0%
+}
+
+.transition .slide.right {
+    right: 0%
+}
+
+/**
+ * The following classes slide the previously active
+ * slide out of view before positioning behind the 
+ * currently active slide
+ *
+ */
+.transition .slide.shift-right {
+    right: 100%;
+    left: auto
+}
+
+.transition .slide.shift-left {
+    left: 100%;
+    right: auto
+}
+
+/**
+ * This sets the CSS properties that will animate. We set the
+ * transition-duration property dynamically via JS.
+ * We use the browser's default transition-timing-function
+ * for simplicity's sake
+ * 
+ * It is important to note that we are using CodePen's inbuilt
+ * CSS3 property prefixer. For your own projects, you will need
+ * to prefix the transition and transform properties here to ensure
+ * reliable support across browsers
+ *
+ */
+.transition .slide {
+    transition-property: right, left, margin;
+}
+
+/**
+ * ==========================
+ * Indicators
+ *
+ */
+.indicators {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    padding: 0;
+    text-align: center;
+}
+
+.indicators li {
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+    margin: 5px;
+    background: #fff;
+    list-style-type: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-out;
+}
+
+.indicators li.active {
+    // background: #93278f;
+    // background: $aqua-haze;
+    // background: #f3f7f8;
+    background: #5FA777;
+}
+
+.indicators li:hover {
+    background-color: #2b2b2b;
+}
+
+/**
+ * ==========================
+ * Arrows 
+ *
+ */
+.arrow {
+    // width: 20px;
+    // height: 20px;
+    // position: absolute;
+    // top: 50%;
+    // z-index: 5;
+    // border-top: 3px solid #fff;
+    // border-right: 3px solid #fff;
+    // cursor: pointer;
+    // transition: border-color 0.3s ease-out;
+
+    position: absolute;
+    // top: 50%;
+    bottom: 0;
+    z-index: 5;
+    z-index: 5;
+    cursor: pointer;
+    transition: border-color 0.3s ease-out;
+    width: 130px;
+    height: 100px;
+    background: transparent;
+    border: 1px solid #f7f8f3;
+    // border-top: 1px solid #f7f8f3;
+    // border-bottom: 1px solid #f7f8f3;
+
+    @media screen and (max-width:1200px) {
+        border: none;
+    }
+
+    @media screen and (max-width:992px) {
+        height: 0;
+    }
+
+}
+
+.arrow:hover {
+    // border-color: #93278f;
+    // border-color: #5FA777;
+    border-color: #6e774a;
+    // border-color: $aqua-haze;
+    // border-color: #f3f7f8;
+}
+
+.arrow-left {
+    left: 50%;
+    // transform: rotate(225deg);
+    transform: translate(-93%, 0%);
+}
+
+.arrow-right {
+    right: 50%;
+    transform: translate(107%, 0%);
+    // transform: rotate(45deg);
+}
+
+/**
+ * ==========================
+ * For demo purposes only
+ * 
+ * Please note that the styles below are used
+ * for the purposes of this demo only. There is no need
+ * to use these in any of your own projects
+ *
+ */
+.slide {
+    text-align: center;
+    // padding-top: 25%;
+    background-size: cover;
+}
+
+// h1 {
+//     width: 100px;
+//     height: 100px;
+//     background-color: rgba(146, 45, 141, 0.7);
+//     margin: auto;
+//     line-height: 100px;
+//     color: #fff;
+//     font-size: 2.4em;
+//     border-radius: 50%;
+// }
+
+.slide:nth-child(1) {
+    background-image: url("../images/every-day-1.jpg");
+}
+
+.slide:nth-child(2) {
+    background-image: url("../images/every-day-2.jpg");
+}
+
+.slide:nth-child(3) {
+    background-image: url("../images/every-day-3.jpg");
+}
+
+.slide:nth-child(4) {
+    background-image: url("../images/every-day-4.jpg");
+    // background-position: center;
+    // background-size: cover;
+}
+
+// .testimonials__arrow-right:hover {
+//     color: green;
+//     fill: hotpink;
+//     // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-arrow-red.svg);
+//     background-repeat: no-repeat;
+// }
+
+
+// .icon-arrow {
+//     // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-arrow-black.svg);
+//     // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-arrow-black.svg);
+//     height: 33px;
+//     width: 33px;
+//     z-index: 10;
+//     display: block;
+//     position: absolute;
+//     z-index: 100;
+//     fill: red;
+//     color: red;
+// }
+
+// .icon:hover {
+//     color: hotpink;
+// }
+
+// .icon {
+//     position: absolute;
+//     display: inline-block;
+//     width: 100px;
+//     height: 100px;
+//     // background-size: cover;
+// }
+
+// .icon-arrow:hover {
+//     background-image: url(../images/products-slider-arrow-right.svg);
+//     background-repeat: no-repeat;
+//     right: 50%;
+//     -webkit-transform: translate(107%, 0%);
+//     transform: translate(76%, 46%);
+// }
+
+// .icon-arrow:hover {
+//     // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/icon-arrow-red.svg);
+// }
+
+.testimonials__svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: translate(-61%, -11%);
+    fill: white;
+
+    @media screen and (max-width:992px) {
+        top: 0%;
+        transform: translate(-50%, -100%);
+    }
+
+    &:hover {
+        fill: yellowgreen;
+        fill: #6e774a;
+    }
+}
+
+// remove dots slider testemonial section
+.indicators {
+    display: none;
+}

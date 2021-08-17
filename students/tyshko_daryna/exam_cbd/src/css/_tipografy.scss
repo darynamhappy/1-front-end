@@ -1,0 +1,53 @@
+// @include grid();
+
+.page {
+    font-family: $font-default;
+    font-size: $default-font-size;
+    // line-height: $default-line-height;
+    // @include bg-cover('../image/bg.jpg');
+    min-height: 100vh;
+    color: $default-color-text;
+    // background-color: #fff;
+    // border: 15px solid white;
+    font-weight: 400;
+}
+
+// .container {
+//     max-width: $container-width;
+//     width: 100%;
+//     margin: 0 auto;
+//     padding: $default-gap;
+// }
+
+// .row {
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin: 0 (-$default-gap);
+// }
+
+// [class^="col-"] {
+//     padding: $default-gap;
+// }
+
+img {
+    max-width: 100%;
+}
+
+.black {
+    background-color: black;
+}
+
+.row_relative {
+    position: relative;
+}
+
+// При адаптивной навигации убрать горизонтальный скролл
+// Или задать Section-у (секции)
+// overflow-y: hidden;
+// overflow-x: hidden;
+// @media (max-width:1200px) {
+//     .row {
+//         // margin: 0;
+//         margin: -5px;
+//     }
+// }

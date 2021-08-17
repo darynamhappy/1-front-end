@@ -1,0 +1,73 @@
+.asked {
+    background-color: $color-spring-wood;
+
+    &__wrapper {
+        max-width: 575px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 30px;
+        color: $color-tuatara;
+        font-family: $font-default-name;
+        padding-top: 145px;
+        padding-left: 40px;
+        margin-bottom: 50px;
+    }
+}
+
+.spollers {
+
+    padding-bottom: 150px;
+}
+
+.spollers_item {
+    &__title {
+        color: $color-avocado;
+        font-size: 18px;
+        font-family: $font-second-name;
+        width: 100%;
+        text-align: left;
+        padding: 30px 0px 30px 50px;
+        position: relative;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        border-top: 1px solid $color-avocado;
+        border-bottom: 1px solid $color-avocado;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 20px;
+            height: 1px;
+            background-color: $color-avocado;
+            position: absolute;
+            left: 0;
+            top: 45px;
+            transition: transform 0.3s ease 0s;
+        }
+
+        &::before {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__text {
+        color: $color-tuatara;
+        font-family: $font-second-name;
+        font-size: 18px;
+        font-family: $font-second-name;
+        padding: 30px 0px 30px 50px;
+        display: none;
+    }
+}
+
+.active {
+    display: block;
+}
+
+.active::before {
+    transform: rotate(0deg);
+}

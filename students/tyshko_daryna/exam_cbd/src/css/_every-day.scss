@@ -1,0 +1,108 @@
+.every-day {
+
+    background-image: url(../images/every-gay.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    // opacity: 0.8;
+    min-height: 100wh;
+    width: 100%;
+    position: relative;
+
+
+    &__container {}
+
+    // .every-day__wrapper 
+
+    &__wrapper {
+        padding-top: 320px;
+        padding-bottom: 320px;
+        max-width: 745px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    // .every-day__navigation-previous
+
+    &__navigation-previous {}
+
+    // .every-day__navigation-next
+
+    &__navigation-next {}
+
+    // .every-day__raiting
+
+    &__raiting {
+        padding-bottom: 40px;
+    }
+
+    // .every-day__quote
+
+    &__quote {
+        font-size: 22px;
+        color: $color-white;
+        font-family: $font-second-name;
+        padding-bottom: 30px;
+        line-height: 1.818;
+        letter-spacing: 4px;
+    }
+
+    // .every-day__author
+
+    &__author {
+        font-size: 24px;
+        color: $color-white;
+        font-family: $font-default-name;
+        text-transform: uppercase;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 45px;
+            height: 2px;
+            background-color: $color-white;
+            position: absolute;
+            top: 50%;
+            left: 37%;
+        }
+    }
+
+    // .every-day__title
+
+    &__title {
+        font-size: 24px;
+        color: $color-white;
+        font-family: $font-second-name;
+        text-transform: uppercase;
+        letter-spacing: 9px;
+        position: absolute;
+        transform: rotate(90deg);
+        top: 80%;
+        left: -2%;
+    }
+}
+
+.container-fluid {}
+
+.row {}
+
+.col-12 {}
+
+.raiting {
+
+    // .raiting__control
+
+    &__control {}
+
+    // .raiting__action
+
+    &__action {}
+
+    // .raiting__star
+
+    &__star {}
+
+    // .raiting__star-full
+
+    &__star-full {}
+}

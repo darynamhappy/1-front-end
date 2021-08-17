@@ -1,0 +1,167 @@
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/intro-bg.jpg");
+    background-position: 50%;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    min-height: 520px;
+    justify-content: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 277px;
+        background: linear-gradient(0deg, rgba(1, 24, 63, 0), rgba(1, 24, 63, .45));
+    }
+
+    &__enhancing-life {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        margin-bottom: 100px;
+    }
+
+    &__title {
+        font-family: $font-default;
+        font-weight: 400;
+        @include adaptive-font-size(55, 25);
+        letter-spacing: 14px;
+        max-width: 640px;
+        text-align: right;
+        text-transform: uppercase;
+        letter-spacing: 0.257em;
+        line-height: 1.364;
+        padding-top: 79px;
+        margin-bottom: 15px;
+        padding-top: 315px;
+
+        @media screen and (max-width:768px) {
+            max-width: 520px;
+        }
+    }
+
+    &__subtitle {
+        font-family: $font-second;
+        font-size: 24px;
+        @include adaptive-font-size(24, 18);
+        font-weight: 300;
+        text-align: right;
+        line-height: 1.5;
+        text-align: right;
+        max-width: 640px;
+        letter-spacing: 0.28em;
+        letter-spacing: 0.257em;
+        margin-bottom: 32px;
+    }
+
+    &__link-wrapper {
+        margin: 20px 0;
+    }
+
+    &__link,
+    &__btn-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &__link {
+        font-size: 18px;
+        color: rgb(247, 248, 243);
+        line-height: 1.5;
+        text-align: right;
+        font-family: $font-second;
+        @include adaptive-font-size(18, 16);
+        letter-spacing: 0.28em;
+        text-align: right;
+        color: #f7f8f3;
+
+
+        &::after {
+            content: url("../images/arrow-right-intro.svg");
+            display: inline-block;
+            margin-left: 10px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    // Scroll-down arrow 
+    &__scroll-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        opacity: 0.5;
+        transition: opacity 0.9s cubic-bezier(0.14, 0.24, 0.66, 0.74);
+        animation: bounce 3s infinite ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__cbd {
+        position: absolute;
+        left: 3%;
+        bottom: 0;
+    }
+
+    &__cbd-text {
+        font-size: 26px;
+        letter-spacing: 0.08em;
+        writing-mode: vertical-rl;
+        transform: scale(-1);
+
+        &:before {
+            content: "";
+            display: inline-block;
+            background-color: #fff;
+            width: 2px;
+            height: 107px;
+            margin-left: 20px;
+            vertical-align: text-bottom;
+            margin-bottom: 31px;
+        }
+    }
+}
+
+// Scroll-down arrow  animation
+@keyframes bounce {
+
+    from,
+    to {
+        top: 0;
+    }
+
+    40%,
+    60% {
+        top: 20px;
+    }
+}
+
+.btn-intro {
+    min-height: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    @include adaptive-font-size(20, 18);
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    &_secondary {
+        border: 1px solid hsla(0, 0%, 100%, .4);
+        display: block;
+        padding: 25px 20px;
+        background-color: transparent;
+        text-transform: uppercase;
+
+    }
+}

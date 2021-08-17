@@ -1,0 +1,115 @@
+// Color palette
+$color-white: white;
+$color-black: #000;
+$grey: #5a5a5a;
+$dodger-blue: #5474FD;
+$window-red: #de2e45;
+$window-text-grey: #b9bcd1;
+$mercury:#E1E1E1;
+$abbey:#999;
+$mine-shaft:#232323;
+$pickled-bluewood:#2C4058;
+$river-bed:#4B5562;
+$malibu:#55B7FF;
+$heliotrope:#7E5AFF;
+$cornflower-blue:#7C5CF9;
+$norway:#9DB892;
+$spring-wood:#F7F8F3;
+$tuatara:#1c1c1b;
+$color-spring-wood: #F7F8F3;
+$color-tuatara: #1C1C1B;
+$color-avocado: #808861;
+
+
+
+// Defaul Border and border radius and color
+$input-border-color: $grey;
+$default-border: 1px solid $input-border-color;
+$default-border-radius: 5px;
+
+// Ширина Контейнера и Паддинг для Tipografy
+$container-width: 1200px;
+$default-gap: 15px;
+
+// Defaul body bg color
+$body-bg-color: $color-white;
+$border-color: $grey;
+
+//header title color
+$color-header-title-h1:$color-white;
+$color-header-button-bg:$dodger-blue;
+$color-header-navigation-bg:$dodger-blue;
+
+//menu
+$border-menu-bottom:$grey;
+$menu-hover-color:$dodger-blue;
+$menu-default-text-color:$grey;
+$menu-icon-color:$grey;
+$color-overlay-menu-window:$color-white;
+$color-overlay-menu:$color-black;
+$color-language-deafult:$grey;
+
+// section projects
+$color-projects-bg:$color-white;
+$color-projects-title:$pickled-bluewood;
+$color-projects-subtitle:$pickled-bluewood;
+$color-projects-text:$river-bed;
+$color-projects-button-border:$pickled-bluewood;
+$color-projects-button-text:$pickled-bluewood;
+$color-projects-location-text:$pickled-bluewood;
+$color-projects-trade-bg-before:$malibu;
+$color-projects-commerce-bg-aftef:$heliotrope;
+
+//footer
+$color-footer-bg:$mine-shaft;
+$color-footer-title:$color-white;
+$color-footer-sub-title:$color-white;
+$color-footer-social-icon:$mercury;
+$color-footer-social-icon-hover:$dodger-blue;
+$color-pickled-bluewood: #2c4058;
+$color-river-bed: #4b5562;
+
+// Кнопка с ховер эффектом
+$color-btn-bg:$dodger-blue;
+$color-btn-text:$color-white;
+
+// Подключение шрифтов
+$font-folder-path: '../fonts/';
+$folder-image: '../images/';
+
+$font-default-name: 'Oswald-Regular';
+$font-second-name: 'Oswald-Light';
+// $font-third-name: 'Gotham-Bold';
+// $font-fourth-name: 'OpenSans-Italic';
+// $font-fifth-name: 'OpenSans-Italic-Regular';
+
+//Fonts follback
+$follback: Arial,
+Helvetica,
+sans-serif;
+//one
+$font-default: $font-default-name,
+$follback;
+//two
+$font-second: $font-second-name,
+$follback;
+//three
+// $font-third: $font-third-name,
+// $follback;
+//fourth
+// $font-fourth: $font-fourth-name,
+// $follback;
+// fifth
+// $font-fifth: $font-fifth-name,
+// $follback;
+
+//Font Size
+$default-font-size: 14px;
+$default-line-height: 2.1875;
+$default-color-text: $pickled-bluewood;
+
+// Breack-points для Media @media screen
+$breack-points: ("xl": 1200px,
+    "lg": 992px,
+    "md": 768px,
+    "sm": 576px);

@@ -1,0 +1,41 @@
+<section class="products" id="catalog">
+    <div class="container-fluid product__container">
+        <div class="row">
+            <div class="col-12">
+                <div class="product__navigation-previous">
+                </div>
+                <div class="product__navigation-next">
+                </div>
+                <h2 class="title title_position">CBD FEATURED PRODUCTS</h2>
+                <div class="product__list featured-products__slider slider1">
+
+                    <div class="product__item product" v-for="product in products" :key="product.id">
+                        <div class="raiting product__raiting">
+                            <div class="raiting__control">
+                                <a class="raiting__action" data-raiting="1" href="#"></a>
+                                <a class="raiting__action" data-raiting="2" href="#"></a>
+                                <a class="raiting__action" data-raiting="3" href="#"></a>
+                                <a class="raiting__action" data-raiting="4" href="#"></a>
+                                <a class="raiting__action" data-raiting="5" href="#"></a>
+                            </div>
+                            <div class="raiting__star"></div>
+                            <div class="raiting__star-full"></div>
+                        </div>
+                        <h3 class="product__title">
+                            {{product.name}}
+                        </h3>
+                        <div class="product__image-wrapper">
+                            <img :src="pathImageFolder + product.img" :alt="product.name">
+                        </div>
+                        <div class="product__action">
+                            <div class="product__price"> {{currensySymbol}} {{product.price.toLocaleString()}}
+                                {{currensySymbolSecond}}
+                            </div>
+                            <button @click="addToCart(product)" class="product__add-to-cart btn">SHOP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

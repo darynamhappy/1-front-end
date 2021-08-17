@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cbd</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.ico" />
+
+</head>
+
+<body class="page">
+    <header class="header">
+    
+        <div class="header__container">
+    
+            <nav class="menu header_menu">
+                <a href="#" class="menu__burger-btn"><span></span></a>
+                <ul class="menu__list">
+                    <li class="menu__item menu__item-login">
+                        <a href="#" class="menu__link menu__link-login">Login</a>
+                        <a href="#" class="menu__link menu__link-search">Search</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">HOME</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#products" class="menu__link">PRODUCTS</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#faqs" class="menu__link">FAQS</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#contact" class="menu__link">CONTACT US</a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <a href="#" class="logo header__logo">CBD</a>
+    
+            <ul class="action header__action">
+                <li class="action__item login">
+                    <a href="#" class="action__login-link">LOGIN</a>
+                </li>
+    
+                <li class="action__item action__search search search-js">
+                    <form action="#" class="search__form">
+                        <input type="text" class="search__input search__input-js" aria-label="search">
+                        <button type="submit" class="search__btn">SEARCH</button>
+                    </form>
+                </li>
+                <li class="action__item cart" id="cart">
+                    <span class="cart__title">CART ({{ getCountProduct }})</span>
+    
+                    <div class="cart__mini-cart mini-cart">
+                        <ul class="mini-cart__list">
+                            <li class="mini-cart__item" v-for="(product, index) in cartList" :key="product.id">
+                                <img class="mini-cart__img" :src="pathImageFolder + product.img" :alt="product.name">
+                                <div class="mini-cart__product-info">
+                                    <h4 class="mini-cart__product-name"> {{product.name}} </h4>
+                                    <p class="mini-cart__product-price-wrapper">
+                                        <span class="mini-cart__product-price">{{currensySymbol}}
+                                            {{product.price.toLocaleString()}}
+                                            {{currensySymbolSecond}}</span>
+                                        <span class="mini-cart__product-summary-price">{{currensySymbol}}
+                                            {{ (product.price * product.qty).toLocaleString() }}
+                                            {{currensySymbolSecond}}</span>
+                                    </p>
+                                </div>
+                                <div class="mini-cart__qty-wrapper">
+                                    <button @click="setQtyProduct(product, true)" class="mini-cart__inc"></button>
+                                    <input class="mini-cart__qty" type="text" v-model="product.qty">
+                                    <button @click="setQtyProduct(product, false)" class="mini-cart__dec"></button>
+                                    <button @click="removeProduct(index)" class="mini-cart__btn-remove">X</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="mini-cart__summary-wrapper" v-if="getTotalPrice !== 0">
+                            <p class="mini-cart__summary"> {{ getTotalPrice }} </p>
+                        </div>
+                        <div class="mini-cart__action">
+                            <button class="btn btn_primary mini-cart__go-to-checkout">Proceed to Checkout</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <section class="intro" id="intro">
+        
+            <div class="container-lg intro__container">
+        
+                <div class="row intro__row">
+        
+                    <div class="col intro__enhancing-life">
+                        <h1 class="intro__title">Enhancing Life Excelling in Care</h1>
+                        <p class="intro__subtitle">Choose Wisely. Choose CBD.</p>
+                        <p class="intro__link-wrapper">
+                            <a href="#" class="intro__btn-link btn-intro btn-intro_secondary">START SHOPPING</a>
+                        </p>
+                        <p class="intro__text text">
+                            <a href="#" class="intro__link">See all products</a>
+                        </p>
+                    </div>
+        
+                </div>
+        
+                <div class="row intro__scroll">
+                    <div class="col intro__scroll-wrapper">
+                        <a class="intro__scroll-link" href="#Products">
+                            <img class="intro__scroll-image" src="images/arrow-down-intro.png" alt="Arrow Down">
+                        </a>
+                    </div>
+                </div>
+        
+            </div>
+        
+            <div class="intro__cbd">
+                <p class="intro__cbd-text">CBD POTION HEALTH</p>
+            </div>
+        
+        </section>
+        <section class="about">
+        
+            <div class="container-lg about__container">
+                <div class="row about__row">
+                    <div class="col about_col">
+                        <img class="about__title" src="./images/about-we-are-what.png" alt="We are what we are">
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col about__tabs tabs tabs-js">
+                        <ul class="tabs__control-list">
+                            <li class="tabs__item active">
+                                <a class="tabs__link" href="#whatIsCbd">What is cbd?</a>
+                            </li>
+                            <li class="tabs__item">
+                                <a class="tabs__link" href="#benefits">Benefits</a>
+                            </li>
+                            <li class="tabs__item">
+                                <a class="tabs__link" href="#ourDifference">Our difference</a>
+                            </li>
+                        </ul>
+        
+                        <div class="tabs__content">
+        
+                            <div class="tabs__content-item active" data-tab="whatIsCbd">
+                                <div class="row tabs__row">
+                                    <div class="col-lg col-md-6 col-sm-6 col-12 tabs__text">
+                                        <h3 class="title title-intro title_h3 tabs__title">What it is and how it works</h3>
+                                        <p class="text">
+                                            CBD is short for cannabidiol. It is a phytocannabinoid found in
+                                            hemp and known for supporting the body and mind in many ways.* Charlotte’s Web
+                                            products have cannabinoids with CBD extract.
+                                        </p>
+                                        <p class="text">
+                                            Not to be confused with oil from hemp seeds (which doesn’t contain
+                                            cannabinoids), CBD comes from the flowers and leaves of the hemp plant.
+                                        </p>
+                                        <p class="text">
+                                            Why does CBD work? The human body has a vast network of receptors, the
+                                            endocannabinoid system.
+                                        </p>
+                                    </div>
+                                    <div class="col-lg col-md-6 col-sm-6 col-12 tabs__img">
+                                        <img src="./images/tab/1.jpg" alt="Mountain">
+                                        <img src="./images/tab/2.jpg" alt="Sun Field Landscape">
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="tabs__content-item" data-tab="benefits">
+                                <div class="row tabs__row">
+                                    <div class="col-lg col-md-6 tabs__img">
+                                        <img src="./images/tab/1.jpg" alt="Mountain">
+                                        <img src="./images/tab/2.jpg" alt="Sun Field Landscape">
+                                    </div>
+                                    <div class="col-lg col-md-6 tabs__text">
+                                        <h3 class="title title-intro title_h3 tabs__title">Benefits</h3>
+                                        <p class="text">
+                                            CBD is short for cannabidiol. It is a phytocannabinoid found in
+                                            hemp and known for supporting the body and mind in many ways.* Charlotte’s Web
+                                            products have cannabinoids with CBD extract.
+                                        </p>
+                                        <p class="text">
+                                            Not to be confused with oil from hemp seeds (which doesn’t contain
+                                            cannabinoids), CBD comes from the flowers and leaves of the hemp plant.
+                                        </p>
+                                        <p class="text">
+                                            Why does CBD work? The human body has a vast network of receptors, the
+                                            endocannabinoid system.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="tabs__content-item" data-tab="ourDifference">
+                                <div class="row tabs__row">
+                                    <div class="col-lg col-md-6 tabs__text">
+                                        <h3 class="title title-intro title_h3 tabs__title">Our difference</h3>
+                                        <p class="text">
+                                            CBD is short for cannabidiol. It is a phytocannabinoid found in
+                                            hemp and known for supporting the body and mind in many ways.* Charlotte’s Web
+                                            products have cannabinoids with CBD extract.
+                                        </p>
+                                        <p class="text">
+                                            Not to be confused with oil from hemp seeds (which doesn’t contain
+                                            cannabinoids), CBD comes from the flowers and leaves of the hemp plant.
+                                        </p>
+                                        <p class="text">
+                                            Why does CBD work? The human body has a vast network of receptors, the
+                                            endocannabinoid system.
+                                        </p>
+                                    </div>
+                                    <div class="col-lg col-md-6 tabs__img">
+                                        <img src="./images/tab/1.jpg" alt="Mountain">
+                                        <img src="./images/tab/2.jpg" alt="Sun Field Landscape">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+        <section class="products" id="catalog">
+            <div class="container-fluid product__container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product__navigation-previous">
+                        </div>
+                        <div class="product__navigation-next">
+                        </div>
+                        <h2 class="title title_position">CBD FEATURED PRODUCTS</h2>
+                        <div class="product__list featured-products__slider slider1">
+        
+                            <div class="product__item product" v-for="product in products" :key="product.id">
+                                <div class="raiting product__raiting">
+                                    <div class="raiting__control">
+                                        <a class="raiting__action" data-raiting="1" href="#"></a>
+                                        <a class="raiting__action" data-raiting="2" href="#"></a>
+                                        <a class="raiting__action" data-raiting="3" href="#"></a>
+                                        <a class="raiting__action" data-raiting="4" href="#"></a>
+                                        <a class="raiting__action" data-raiting="5" href="#"></a>
+                                    </div>
+                                    <div class="raiting__star"></div>
+                                    <div class="raiting__star-full"></div>
+                                </div>
+                                <h3 class="product__title">
+                                    {{product.name}}
+                                </h3>
+                                <div class="product__image-wrapper">
+                                    <img :src="pathImageFolder + product.img" :alt="product.name">
+                                </div>
+                                <div class="product__action">
+                                    <div class="product__price"> {{currensySymbol}} {{product.price.toLocaleString()}}
+                                        {{currensySymbolSecond}}
+                                    </div>
+                                    <button @click="addToCart(product)" class="product__add-to-cart btn">SHOP</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="asked">
+            <div class="asked__container container">
+                <div class="asked__wrapper">
+                    <h3 class="asked__title">Frequently asked questions</h3>
+                    <div data-spollers data-one-spoller class="asked__spollers spollers">
+                        <div class="spollers__item">
+                            <button tabindex="-1" type="button" data-spoller class="spollers_item__title"><span>What is
+                                    Cannabidiol
+                                    (CBD)?</span></button>
+                            <div class="spollers_item__text">
+                                Because CBD from hemp has no psychoactive effects, the purchase, sales, or possession of hemp
+                                CBD
+                                products are completely legal in all 50 States.
+                            </div>
+                        </div>
+                        <div class="spollers__item">
+                            <button tabindex="-1" type="button" data-spoller class="spollers_item__title"><span>Is Hemp-Derived
+                                    Cannabidiol (CBD) Legal?</span></button>
+                            <div class="spollers_item__text">
+                                Because CBD from hemp has no psychoactive effects, the purchase, sales, or possession of hemp
+                                CBD
+                                products are completely legal in all 50 States.
+                            </div>
+                        </div>
+                        <div class="spollers__item">
+                            <button tabindex="-1" type="button" data-spoller class="spollers_item__title"><span>Are there any
+                                    negative
+                                    side effects?</span></button>
+                            <div class="spollers_item__text">
+                                Because CBD from hemp has no psychoactive effects, the purchase, sales, or possession of hemp
+                                CBD
+                                products are completely legal in all 50 States.
+                            </div>
+                        </div>
+                        <div class="spollers__item">
+                            <button tabindex="-1" type="button" data-spoller class="spollers_item__title"><span>Do you offer a
+                                    return
+                                    policy?</span></button>
+                            <div class="spollers_item__text">
+                                Because CBD from hemp has no psychoactive effects, the purchase, sales, or possession of hemp
+                                CBD
+                                products are completely legal in all 50 States.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials">
+        
+            <div class="testimonials__wrapper">
+        
+                <div class="testimonials__carousel carousel">
+                    <div class="testimonials__inner inner">
+                        <div class="testimonials__slide slide active">
+                            <!-- <h1>1</h1> -->
+                            <div class="raiting testimonials__raiting">
+                                <div class="raiting__control">
+                                    <a class="raiting__action" data-raiting="1" href="#"></a>
+                                    <a class="raiting__action" data-raiting="2" href="#"></a>
+                                    <a class="raiting__action" data-raiting="3" href="#"></a>
+                                    <a class="raiting__action" data-raiting="4" href="#"></a>
+                                    <a class="raiting__action" data-raiting="5" href="#"></a>
+                                </div>
+                                <div class="raiting__star"></div>
+                                <div class="raiting__star-full"></div>
+                            </div>
+                            <blockquote class="testimonials__quote">
+                                I have tried another product after using this one
+                                successfully,
+                                and I am Back for good!
+                                The flavour, the lightness of the oil and the health benefits I have gotten with this oil are
+                                amazing!
+                            </blockquote>
+                            <figure>
+                                <figcaption class="testimonials__author">Mark J.</figcaption>
+                                <h4 class="testimonials__title">CBD every day</h4>
+                            </figure>
+                        </div>
+                        <div class="testimonials__slide slide">
+                            <!-- <h1>2</h1> -->
+                            <div class="raiting testimonials__raiting">
+                                <div class="raiting__control">
+                                    <a class="raiting__action" data-raiting="1" href="#"></a>
+                                    <a class="raiting__action" data-raiting="2" href="#"></a>
+                                    <a class="raiting__action" data-raiting="3" href="#"></a>
+                                    <a class="raiting__action" data-raiting="4" href="#"></a>
+                                    <a class="raiting__action" data-raiting="5" href="#"></a>
+                                </div>
+                                <div class="raiting__star"></div>
+                                <div class="raiting__star-full"></div>
+                            </div>
+                            <blockquote class="testimonials__quote">
+                                I have tried another product after using this one
+                                successfully,
+                                and I am Back for good!
+                                The flavour, the lightness of the oil and the health benefits I have gotten with this oil are
+                                amazing!
+                            </blockquote>
+                            <figure>
+                                <figcaption class="testimonials__author">Mark J.</figcaption>
+                            </figure>
+                            <h4 class="testimonials__title">CBD every day</h4>
+                        </div>
+                        <div class="testimonials__slide slide">
+                            <!-- <h1>3</h1> -->
+                            <div class="raiting testimonials__raiting">
+                                <div class="raiting__control">
+                                    <a class="raiting__action" data-raiting="1" href="#"></a>
+                                    <a class="raiting__action" data-raiting="2" href="#"></a>
+                                    <a class="raiting__action" data-raiting="3" href="#"></a>
+                                    <a class="raiting__action" data-raiting="4" href="#"></a>
+                                    <a class="raiting__action" data-raiting="5" href="#"></a>
+                                </div>
+                                <div class="raiting__star"></div>
+                                <div class="raiting__star-full"></div>
+                            </div>
+                            <blockquote class="testimonials__quote">
+                                I have tried another product after using this one
+                                successfully,
+                                and I am Back for good!
+                                The flavour, the lightness of the oil and the health benefits I have gotten with this oil are
+                                amazing!
+                            </blockquote>
+                            <figure>
+                                <figcaption class="testimonials__author">Mark J.</figcaption>
+                            </figure>
+                            <h4 class="testimonials__title">CBD every day</h4>
+                        </div>
+                        <div class="testimonials__slide slide">
+                            <!-- <h1>4</h1> -->
+                            <div class="raiting testimonials__raiting">
+                                <div class="raiting__control">
+                                    <a class="raiting__action" data-raiting="1" href="#"></a>
+                                    <a class="raiting__action" data-raiting="2" href="#"></a>
+                                    <a class="raiting__action" data-raiting="3" href="#"></a>
+                                    <a class="raiting__action" data-raiting="4" href="#"></a>
+                                    <a class="raiting__action" data-raiting="5" href="#"></a>
+                                </div>
+                                <div class="raiting__star"></div>
+                                <div class="raiting__star-full"></div>
+                            </div>
+                            <blockquote class="testimonials__quote">
+                                I have tried another product after using this one
+                                successfully,
+                                and I am Back for good!
+                                The flavour, the lightness of the oil and the health benefits I have gotten with this oil are
+                                amazing!
+                            </blockquote>
+                            <figure>
+                                <figcaption class="testimonials__author">Mark J.</figcaption>
+                                <h4 class="testimonials__title">CBD every day</h4>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="arrow testimonials__arrow-left arrow-left">
+                        <svg class="testimonials__svg" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="20px">
+                            <path fill-rule="evenodd"
+                                d="M0.274,9.370 L0.274,9.370 L9.363,0.330 C9.689,-0.050 10.263,-0.094 10.644,0.232 C11.025,0.556 11.070,1.127 10.743,1.506 C10.713,1.541 10.680,1.574 10.644,1.604 L3.110,9.108 L39.091,9.108 C39.593,9.108 40.000,9.512 40.000,10.012 C40.000,10.511 39.593,10.916 39.091,10.916 L3.110,10.916 L10.644,18.410 C11.025,18.735 11.070,19.306 10.743,19.685 C10.417,20.064 9.843,20.109 9.462,19.784 C9.426,19.753 9.393,19.721 9.363,19.685 L0.274,10.645 C-0.078,10.292 -0.078,9.722 0.274,9.370 Z" />
+                        </svg>
+                    </div>
+                    <div class="arrow testimonials__arrow-right arrow-right">
+                        <span class="icon icon-arrow"></span>
+                        <svg class="testimonials__svg" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="40px" height="22px">
+                            <path fill-rule="evenodd"
+                                d="M39.726,10.352 L39.726,10.352 L30.637,1.269 C30.311,0.888 29.737,0.844 29.356,1.170 C28.975,1.496 28.930,2.069 29.257,2.451 C29.287,2.486 29.320,2.519 29.356,2.549 L36.890,10.089 L0.909,10.089 C0.407,10.089 -0.000,10.494 -0.000,10.997 C-0.000,11.498 0.407,11.904 0.909,11.904 L36.890,11.904 L29.356,19.434 C28.975,19.761 28.930,20.334 29.257,20.715 C29.583,21.096 30.157,21.141 30.538,20.814 C30.574,20.783 30.607,20.751 30.637,20.715 L39.726,11.632 C40.078,11.278 40.078,10.705 39.726,10.352 Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+    </main>
+    <footer class="footer">
+        <footer class="footer" id="contact">
+            <div class="container-lg footer__container">
+        
+                <div class="row footer__row footer__row-logo_position">
+                    <div class="footer__col col-lg-4 col-md-4 col-sm-4 col-4">
+                        <div class="footer__line-wrapper"></div>
+                    </div>
+                    <div class="footer__col col-lg-4 col-md-4 col-sm-4 col-4">
+                        <div class="footer__logo-wrapper">
+                            <a href="#intro" class="footer__logo footer-logo-text">CBD</a>
+                        </div>
+                    </div>
+                    <div class="footer__col col-lg-4 col-md-4 col-sm-4 col-4">
+                        <div class="footer__line-wrapper"></div>
+                    </div>
+                </div>
+        
+                <div class="row footer__row footer__row-center">
+                    <div class="footer__col-center col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="footer__left-side">
+        
+                            <ul class="footer__left-side-menu">
+                                <li class="footer__left-side-menu-item">
+                                    <a href="#intro" class="footer__left-side-menu-link footer-link">
+                                        PRIVACY POLICY
+                                    </a>
+                                </li>
+                                <li class="footer__left-side-menu-item">
+                                    <a href="#intro" class="footer__left-side-menu-link footer-link">
+                                        TERMS OF USE
+                                    </a>
+                                </li>
+                                <li class="footer__left-side-menu-item">
+                                    <a href="#intro" class="footer__left-side-menu-link footer-link">
+                                        RETURN POLICY
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__col-center footer__col-center_before col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="footer__center-side">
+                            <ul class="footer__center-menu">
+                                <li class="footer__center-menu-item">
+                                    <a href="#intro" class="footer__center-menu-item-link">
+                                        <svg class="footer__center-menu-item-svg" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="21px">
+                                            <path fill-rule="evenodd"
+                                                d="M10.586,0.004 L7.947,-0.001 C4.983,-0.001 3.068,2.028 3.068,5.167 L3.068,7.551 L0.415,7.551 C0.186,7.551 0.000,7.742 0.000,7.979 L0.000,11.431 C0.000,11.668 0.186,11.860 0.415,11.860 L3.067,11.860 L3.067,20.572 C3.067,20.808 3.253,21.000 3.482,21.000 L6.943,21.000 C7.173,21.000 7.358,20.808 7.358,20.572 L7.358,11.860 L10.460,11.860 C10.689,11.860 10.875,11.668 10.875,11.431 L10.876,7.979 C10.876,7.865 10.832,7.756 10.754,7.676 C10.677,7.596 10.571,7.551 10.461,7.551 L7.358,7.551 L7.358,5.530 C7.358,4.559 7.583,4.067 8.808,4.067 L10.585,4.066 C10.814,4.066 11.000,3.874 11.000,3.638 L11.000,0.432 C11.000,0.196 10.814,0.004 10.586,0.004 Z" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="footer__center-menu-item">
+                                    <a href="#intro" class="footer__center-menu-item-link">
+                                        <svg class="footer__center-menu-item-svg" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="22px" height="18px">
+                                            <path fill-rule="evenodd"
+                                                d="M21.393,0.332 C20.520,0.853 19.554,1.231 18.525,1.436 C17.702,0.551 16.530,-0.000 15.232,-0.000 C12.739,-0.000 10.718,2.035 10.718,4.544 C10.718,4.900 10.758,5.247 10.835,5.579 C7.084,5.390 3.758,3.580 1.532,0.830 C1.144,1.501 0.922,2.281 0.922,3.115 C0.922,4.692 1.720,6.083 2.929,6.898 C2.190,6.873 1.494,6.668 0.885,6.327 L0.885,6.384 C0.885,8.586 2.441,10.422 4.505,10.841 C4.127,10.944 3.728,11.001 3.316,11.001 C3.025,11.001 2.743,10.971 2.466,10.918 C3.041,12.724 4.707,14.038 6.681,14.075 C5.137,15.294 3.190,16.020 1.077,16.020 C0.712,16.020 0.353,15.998 -0.000,15.958 C1.998,17.246 4.369,18.000 6.918,18.000 C15.220,18.000 19.759,11.074 19.759,5.068 L19.744,4.478 C20.629,3.841 21.396,3.040 22.000,2.129 C21.190,2.490 20.322,2.736 19.409,2.845 C20.341,2.283 21.055,1.391 21.393,0.332 Z" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="footer__center-menu-item">
+                                    <a href="#intro" class="footer__center-menu-item-link">
+                                        <svg class="footer__center-menu-item-svg" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="19px">
+                                            <path fill-rule="evenodd"
+                                                d="M27.005,4.059 C27.005,1.816 25.198,-0.001 22.970,-0.001 L4.040,-0.001 C1.811,-0.001 0.005,1.816 0.005,4.059 L0.005,14.941 C0.005,17.182 1.811,19.000 4.040,19.000 L22.970,19.000 C25.198,19.000 27.005,17.182 27.005,14.941 L27.005,4.059 ZM10.805,14.091 L10.805,3.869 L18.515,8.980 L10.805,14.091 Z" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__col-center col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="footer__right-side">
+        
+                            <ul class="footer__right-side-menu">
+                                <li class="footer__right-side-menu-item">
+                                    <a href="#intro" class="footer__right-side-menu-link footer-link">
+                                        SHIPPING INFO
+                                    </a>
+                                </li>
+                                <li class="footer__right-side-menu-item">
+                                    <a href="#intro" class="footer__right-side-menu-link footer-link">
+                                        RETURNS / EXCHANGES
+                                    </a>
+                                </li>
+                                <li class="footer__right-side-menu-item">
+                                    <a href="#intro" class="footer__right-side-menu-link footer-link">
+                                        CONTACT
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row footer__row footer__row-subscribe">
+                    <div class="col footer__col">
+                        <p class="footer__subscribe subscribe-text">
+                            Subscribe to Newsletter
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="row footer__row footer__row-contact">
+                    <div class="col footer__col">
+                        <form name="form" action="#" method="GET"
+                            class="col-6 footer__form footer__contact-form footer__contact-form_position col-6 col-md-9">
+                            <div class="col-6 footer__input-wrapper">
+                                <input id="email" type="email" minlength="6" maxlength="64"
+                                    class="footer__contact-form-email footer__contact-form-email_position" value=""
+                                    placeholder="Email">
+                                <span class="footer__input-text-msg error col" id="result"></span>
+                                <div class="footer-contac-btn-div"></div>
+                                <input id="submit" type="submit" name="btnSubmit"
+                                    class="footer__contact-form-btn footer__contact-form-btn_position button footer-contac-btn"
+                                    value="">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+                <div class="row footer__row-all-right-reserved">
+                    <div class="co-12 footer__col footer__col-all-right-reserved">
+                        <p class="footer__text col-sm-12">&#169; 2018. CBD HEALTH.</p>
+                    </div>
+                </div>
+        
+            </div>
+        </footer>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
